@@ -860,7 +860,7 @@
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
 #if ENABLED(KNUTWURST_MEGA)
-    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 96 }
+    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 415 } // BMG installed, 96 default
 #endif
 
 #if ENABLED(KNUTWURST_MEGA_S)
