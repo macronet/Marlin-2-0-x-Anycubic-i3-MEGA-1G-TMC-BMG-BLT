@@ -99,7 +99,7 @@
  * These settings are required and not set by PlatformIO.
  */
 #define KNUTWURST_PRHEAT_NOZZLE_PLA 200
-#define KNUTWURST_PRHEAT_BED_PLA     60
+#define KNUTWURST_PRHEAT_BED_PLA     50
 #define KNUTWURST_PRHEAT_NOZZLE_ABS 240
 #define KNUTWURST_PRHEAT_BED_ABS     90
 
@@ -137,7 +137,7 @@
 // @section info
 
 // Author info of this build printed to the host during boot and M115
-#define STRING_CONFIG_H_AUTHOR "(knutwurst)" // Who made the changes.
+#define STRING_CONFIG_H_AUTHOR "(macronet)" // Who made the changes.
 //#define CUSTOM_VERSION_FILE Version.h // Path from the root directory (no quotes)
 
 /**
@@ -211,7 +211,7 @@
 #endif
 
 // Name displayed in the LCD "Ready" message and Info menu
-//#define CUSTOM_MACHINE_NAME "3D Printer"
+#define CUSTOM_MACHINE_NAME "Ai3M-1G-TMC-BMG-BLT"
 
 // Printer's unique ID, used by some programs to differentiate between machines.
 // Choose your own or use a service like http://www.uuidgenerator.net/version4
@@ -801,8 +801,8 @@
     #define X_DRIVER_TYPE  TMC2208_STANDALONE
     #define Y_DRIVER_TYPE  TMC2208_STANDALONE
     #define Z_DRIVER_TYPE  TMC2208_STANDALONE
-    #define E0_DRIVER_TYPE TMC2208_STANDALONE
-    #define E1_DRIVER_TYPE TMC2208_STANDALONE
+    #define E0_DRIVER_TYPE TMC2208 // UART enabled (p11/12)
+    #define E1_DRIVER_TYPE A4988 // Not installed
 #else
     #if ENABLED(KNUTWURST_MEGA_P)
         #define X_DRIVER_TYPE  TMC2208_STANDALONE
@@ -1232,7 +1232,8 @@
  * Specify a Probe position as { X, Y, Z }
  */
 #if ENABLED(KNUTWURST_BLTOUCH)
-    #define NOZZLE_TO_PROBE_OFFSET { -2, -25, 0 } //https://www.thingiverse.com/thing:2824005
+    #define NOZZLE_TO_PROBE_OFFSET { -42, -17, 0 } //Custom-Ai3M-mount
+    //#define NOZZLE_TO_PROBE_OFFSET { -2, -25, 0 } //https://www.thingiverse.com/thing:2824005
     //#define NOZZLE_TO_PROBE_OFFSET { 29, -15, 0 } //X-Carriage
 #endif
 
@@ -1531,9 +1532,9 @@
     #define X_MIN_POS 0
     #define Y_MIN_POS 0
     #define Z_MIN_POS 0
-    #define X_BED_SIZE 215
-    #define Y_BED_SIZE 215
-    #define Z_MAX_POS 206
+    #define X_BED_SIZE 225  //215, Ultrabase installed
+    #define Y_BED_SIZE 220  //215, Ultrabase installed
+    #define Z_MAX_POS 210   //206
     #define X_MAX_POS X_BED_SIZE
     #define Y_MAX_POS Y_BED_SIZE
 #endif
@@ -1722,7 +1723,7 @@
     #define MESH_TEST_NOZZLE_SIZE    0.4  // (mm) Diameter of primary nozzle.
     #define MESH_TEST_LAYER_HEIGHT   0.2  // (mm) Default layer height for the G26 Mesh Validation Tool.
     #define MESH_TEST_HOTEND_TEMP  200    // (°C) Default nozzle temperature for the G26 Mesh Validation Tool.
-    #define MESH_TEST_BED_TEMP      60    // (°C) Default bed temperature for the G26 Mesh Validation Tool.
+    #define MESH_TEST_BED_TEMP      50    // (°C) Default bed temperature for the G26 Mesh Validation Tool.
     #define G26_XY_FEEDRATE         20    // (mm/s) Feedrate for XY Moves for the G26 Mesh Validation Tool.
     #define G26_RETRACT_MULTIPLIER   1.0  // G26 Q (retraction) used by default between mesh test elements.
   #endif
@@ -1737,7 +1738,6 @@
 
   // Probe along the Y axis, advancing X after each column
   //#define PROBE_Y_FIRST
-
   
   #if ENABLED(AUTO_BED_LEVELING_BILINEAR)
 
@@ -1977,8 +1977,8 @@
 
 // Preheat Constants
 #define PREHEAT_1_LABEL       "PLA"
-#define PREHEAT_1_TEMP_HOTEND 180
-#define PREHEAT_1_TEMP_BED     70
+#define PREHEAT_1_TEMP_HOTEND 200
+#define PREHEAT_1_TEMP_BED     50
 #define PREHEAT_1_FAN_SPEED     0 // Value from 0 to 255
 
 #define PREHEAT_2_LABEL       "ABS"
