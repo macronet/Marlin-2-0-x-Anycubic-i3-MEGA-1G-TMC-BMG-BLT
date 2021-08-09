@@ -28,6 +28,37 @@
 #define BOARD_INFO_NAME "Anycubic RAMPS 1.4"
 
 //
+// Pin overrides, custom configuration
+//
+
+// Extruder driver is TMC2208 with UART connected, board revision 1.0, bump servos +1
+#if HAS_DRIVER(TMC2208)
+/**
+ * TMC2208 stepper drivers
+ * 
+ * Hardware serial communication ports.
+ * If undefined software serial is used according to the pins below
+ */
+ #define E0_SERIAL_TX_PIN                     12
+ #define E0_SERIAL_RX_PIN                     11
+ #define SERVO0_PIN                            6
+ #define SERVO1_PIN                            5
+ #define SERVO2_PIN                            4
+ #define SERVO3_PIN                           -1
+#endif
+
+// Temperature sensor remap, bed moved from broken pin14 -> pin15
+#ifndef TEMP_0_PIN
+  #define TEMP_0_PIN                          13  // Analog Input
+#endif
+#ifndef TEMP_1_PIN
+  #define TEMP_1_PIN                          14  // Analog Input
+#endif
+#ifndef TEMP_BED_PIN
+  #define TEMP_BED_PIN                        15  // Analog Input
+#endif
+
+//
 // Servos
 //
 #if MB(TRIGORILLA_14_11)
