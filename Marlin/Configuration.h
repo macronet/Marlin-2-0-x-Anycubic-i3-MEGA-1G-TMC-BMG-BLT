@@ -860,7 +860,11 @@
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
 #if ENABLED(KNUTWURST_MEGA)
-    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 415 } // BMG installed, 96 default
+    #if ENABLED(KNUTWURST_BMG)
+      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 415 }
+    #else
+      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 96 }
+    #endif
 #endif
 
 #if ENABLED(KNUTWURST_MEGA_S)
@@ -1232,7 +1236,7 @@
  * Specify a Probe position as { X, Y, Z }
  */
 #if ENABLED(KNUTWURST_BLTOUCH)
-    #define NOZZLE_TO_PROBE_OFFSET { -42, -17, 0 } //Custom-Ai3M-mount
+    #define NOZZLE_TO_PROBE_OFFSET { -11, -39, 0 } //Custom-Ai3M-mount
     //#define NOZZLE_TO_PROBE_OFFSET { -2, -25, 0 } //https://www.thingiverse.com/thing:2824005
     //#define NOZZLE_TO_PROBE_OFFSET { 29, -15, 0 } //X-Carriage
 #endif
@@ -1532,8 +1536,8 @@
     #define X_MIN_POS 0
     #define Y_MIN_POS 0
     #define Z_MIN_POS 0
-    #define X_BED_SIZE 225  //215, Ultrabase installed
-    #define Y_BED_SIZE 220  //215, Ultrabase installed
+    #define X_BED_SIZE 228  //215, Ultrabase installed
+    #define Y_BED_SIZE 218  //215, Ultrabase installed
     #define Z_MAX_POS 210   //206
     #define X_MAX_POS X_BED_SIZE
     #define Y_MAX_POS Y_BED_SIZE
