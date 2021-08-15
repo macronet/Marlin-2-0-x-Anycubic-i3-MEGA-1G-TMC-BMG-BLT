@@ -91,12 +91,9 @@ void GcodeSuite::M104() {
     #endif
   }
 
-
-
   #if ENABLED(AUTOTEMP)
     planner.autotemp_M104_M109();
   #endif
-
 }
 
 /**
@@ -164,7 +161,6 @@ void GcodeSuite::M109() {
     AnycubicTouchscreen.CommandScan();
     AnycubicTouchscreen.BedHeatingDone();
   #endif
-
 }
 
 #endif // EXTRUDERS
