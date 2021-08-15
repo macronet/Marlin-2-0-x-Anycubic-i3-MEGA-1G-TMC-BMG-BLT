@@ -14,3 +14,9 @@
 <sub>*It doesn't have to be a generous donation. A few cents are enough to show me who is interested in further development. So the motivation stays and I just know that I am not programming for the bin ;)<sub>
 
 ### This repository contains local modifications to get a _certain_ Anycubic i3 Mega 1st generation printer working - use upstream version.
+# History
+- This is based on Marlin <strike>2.0.5.3</strike> 2.0.5.4
+- Upstream Marlin 2.0.6 brought preliminary support for i3 Mega
+- Upstream Marlin 2.0.6.1 brought preliminary support for Chiron
+# Todo
+- Port to >2.0.6, latest (2021-08-13) is 2.0.9.1.
